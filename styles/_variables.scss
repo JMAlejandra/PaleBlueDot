@@ -1,0 +1,87 @@
+// FONTS
+$font-1: "IBM Plex Sans", sans-serif;
+$font-2: "IBM Plex Mono", monospace;
+
+// FONT SIZES
+$main-title-desktop: 64px;
+$sub-title-desktop: 48px;
+$main-title-mobile: 36px;
+$paragraph-desktop: 16px;
+$paragraph-mobile: 14px;
+$btn-desktop: 18px;
+$btn-mobile: 16px;
+$topic: 24px;
+
+// FONT COLORS
+$font-default: #060a24;
+$font-hover: #00f3bb;
+$font-active: rgba(6, 10, 36, 0.56);
+$font-blue-bck: #ffffff;
+$font-btn-hover: #ffffff;
+$font-main-title: #060a24;
+$font-dot: #0000ec;
+
+// PALETTE
+$button-1: #00f3bb;
+$menu-bck: rgba(0, 0, 236, 1);
+$background: #ffffff;
+
+// GRADIENTS
+// background blue
+$gradient-bck: linear-gradient(225deg, #0000ff 0%, #0000a3 100%);
+// button on hover
+$gradient-btn-hov: linear-gradient(225deg, #0000fe 0%, #00f0b8 100%);
+
+// MIXINS
+
+// font family & size
+@mixin font-edit($font-type, $size, $color, $weight) {
+	font-family: $font-type;
+	font-size: $size;
+	color: $color;
+	font-weight: $weight;
+}
+
+// buttons
+@mixin button-styles(
+	$width,
+	$height,
+	$margins,
+	$paddings,
+	$transform,
+	$fontsize
+) {
+	.btn {
+		background-color: $button-1;
+		width: $width;
+		height: $height;
+		box-sizing: border-box;
+		margin: $margins;
+		padding: $paddings;
+		transform: translateX($transform);
+
+		a {
+			text-decoration: none;
+			@include font-edit($font-2, $fontsize, $font-default, 500);
+			box-sizing: content-box;
+			transform: translate(-50%, -50%);
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: inherit;
+			text-align: center;
+		}
+
+		&:hover {
+			background-image: $gradient-btn-hov;
+			color: $font-btn-hover;
+
+			a {
+				color: $font-btn-hover;
+			}
+		}
+	}
+}
+
+// mobile button-styles(90%, 48px, 0, 0.2% 0%, 5%, $btn-mobile)
+// desktop button-styles(24%, 56px, 2.5% 0% 5% 38%, 0 5px, 0%, $btn-desktop)

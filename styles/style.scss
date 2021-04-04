@@ -1,0 +1,17 @@
+@import "./variables";
+@import "./mobile";
+@import "./desktop";
+
+* {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+@media screen and (max-width: 768px) {
+	@include mobile;
+}
+
+@media screen and (min-width: 768.1px) {
+	@include desktop;
+}
